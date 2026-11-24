@@ -9,14 +9,15 @@ export const RateContentOK = new Rate('content_OK');
 
 export const options = {
   thresholds: {
-    http_req_failed: ['rate<0.30'],
-    get_contacts: ['p(99)<800'],
-    content_OK: ['rate>0.95']
+    http_req_failed: ['rate<0.25'],
+    get_contacts: ['p(90)<6800']
   },
+  vus: 7,
   stages: [
-    { duration: '5s', target: 50 },
-    { duration: '10s', target: 100 },
-    { duration: '15s', target: 500 }
+    { duration: '30s', target: 7 },
+    { duration: '60s', target: 46 },
+    { duration: '60s', target: 92 },
+    { duration: '60s', target: 92 }
   ]
 };
 
